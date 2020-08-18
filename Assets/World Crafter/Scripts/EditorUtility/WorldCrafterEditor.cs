@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace WorldCrafter.Utility
+namespace WorldCrafter.EditorUtility
 {
     [CustomEditor(typeof(MapGenerator))]
     public class WorldCrafterEditor : Editor

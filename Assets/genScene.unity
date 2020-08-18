@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdf5cb5e57a1dde4ea6df890d30f882d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderer: {fileID: 1582324235}
+  TextureRenderer: {fileID: 1582324235}
 --- !u!4 &2003925131
 Transform:
   m_ObjectHideFlags: 0

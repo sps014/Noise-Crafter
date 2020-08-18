@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace WorldCrafter.Utility
+namespace WorldCrafter.EditorUtility
 {
     public class MapGenerator : MonoBehaviour
     {
