@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WorldCrafter.Utility;
 
 namespace WorldCrafter
 {
@@ -13,7 +14,7 @@ namespace WorldCrafter
         public void GenerateMap()
         {
             var map = NoiseGenerator.GeneratePerlinNoise(Width, Height, Scale);
-            var display = FindObjectOfType<DisplayMap>();
+            var display = FindObjectOfType<MapTextureRenderer>();
             display.DrawNoiseMap(map);
         }
 
