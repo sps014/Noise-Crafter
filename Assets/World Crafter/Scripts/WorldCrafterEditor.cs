@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(GernerateMap))]
-public class WorldCrafterEditor : Editor
+namespace WorldCrafter
 {
-    public override void OnInspectorGUI()
+    [CustomEditor(typeof(MapGenerator))]
+    public class WorldCrafterEditor : Editor
     {
-        var mapgen = target as GernerateMap;
-        if(DrawDefaultInspector())
+        public override void OnInspectorGUI()
         {
-            if(mapgen.AutoGenerate)
+            var mapGenerator = target as MapGenerator;
+            if (DrawDefaultInspector())
             {
-                mapgen.GenerateMap();
+                if (mapGenerator.AutoGenerate)
+                {
+                    mapGenerator.GenerateMap();
+                }
+            }
+            if (GUILayout.Button("Generate"))
+            {
+                mapGenerator.GenerateMap();
             }
         }
-        if(GUILayout.Button("Generate"))
-        {
-            mapgen.GenerateMap();
-        }
     }
+
 }
