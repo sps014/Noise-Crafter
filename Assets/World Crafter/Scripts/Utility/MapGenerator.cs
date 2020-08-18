@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using WorldCrafter.Utility;
 
-namespace WorldCrafter
+namespace WorldCrafter.Utility
 {
     public class MapGenerator : MonoBehaviour
     {

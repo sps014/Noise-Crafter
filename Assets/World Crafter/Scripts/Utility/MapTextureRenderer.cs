@@ -7,7 +7,7 @@ namespace WorldCrafter.Utility
 {
     public class MapTextureRenderer : MonoBehaviour
     {
-        public Renderer renderer;
+        public Renderer TextureRenderer;
 
         public void DrawNoiseMap(float[,] map)
         {
@@ -24,8 +24,8 @@ namespace WorldCrafter.Utility
             }
             texture.SetPixels(colorMap);
             texture.Apply();
-            renderer.sharedMaterial.mainTexture = texture;
-            renderer.transform.localScale = new Vector3(width, 1, height);
+            TextureRenderer.sharedMaterial.mainTexture = texture;
+            TextureRenderer.transform.localScale = new Vector3(width, 1, height);
         }
     }
 
