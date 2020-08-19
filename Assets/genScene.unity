@@ -426,8 +426,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Width: 256
   Height: 256
-  Scale: 0.25
+  Scale: 61.83
   AutoGenerate: 1
+  NoOfLayers: 7
+  Persistane: 1
+  Lacunarity: 1.92
+  Offset: {x: 12.86, y: 13.45}
+  Seed: 9
 --- !u!114 &2003925130
 MonoBehaviour:
   m_ObjectHideFlags: 0
