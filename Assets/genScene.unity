@@ -426,7 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Width: 256
   Height: 256
-  Scale: 0.3
+  Scale: 0.25
   AutoGenerate: 1
 --- !u!114 &2003925130
 MonoBehaviour:
