@@ -8,11 +8,11 @@ namespace WorldCrafter.EditorUtility
     {
         public int Width = 256;
         public int Height = 256;
-        public float Scale = 0.3f;
+        public float Scale = 27.0f;
         public bool AutoGenerate = false;
-        public int NoOfLayers=4;
-        public float Persistane = 0.1f;
-        public float Lacunarity = 0.1f;
+        public int NoOfLayers=7;
+        public float Persistane = 0.5f;
+        public float Lacunarity = 1.87f;
         public void GenerateMap()
         {
             var map = NoiseGenerator.GeneratePerlinNoise(Width, Height, Scale,new NoiseConfig(NoOfLayers,Persistane,Lacunarity));
