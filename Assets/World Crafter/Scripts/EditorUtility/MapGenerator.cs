@@ -66,9 +66,12 @@ namespace WorldCrafter.EditorUtility
             {
                 Lacunarity = 1;
             }
-            if(NoOfLayers<0)
+            if(Layers.Length==0)
             {
-                NoOfLayers = 1;
+                Layers = new TerrainLayer[2];
+                Layers[0] = new TerrainLayer() { Color = Color.blue, Height = 0.4f, Name = "Water" };
+                Layers[1] = new TerrainLayer() { Color = Color.green, Height = 1.0f, Name = "Land" };
+
             }
         }
 
