@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,11 +17,24 @@ namespace WorldCrafter.EditorUtility
         public float Lacunarity = 1.87f;
         public Vector2 Offset;
         public int Seed = 124;
+        public TerrainLayer[] Layers;
         public void GenerateMap()
         {
             var map = NoiseGenerator.GeneratePerlinNoise(Width, Height, Scale,Seed,new NoiseConfig(NoOfLayers,Persistane,Lacunarity),Offset);
+            GenerateColors();
             var display = FindObjectOfType<MapTextureRenderer>();
             display.DrawNoiseMap(map);
+        }
+        void GenerateColors(float[,] map)
+        {
+            for (int i = 0; i < Width; i++)
+            {
+                for (int j = 0; j < Height; j++)
+                {
+                    var current = map[i, j];
+                    
+                }
+            }
         }
         void OnValidate()
         {
@@ -38,6 +52,13 @@ namespace WorldCrafter.EditorUtility
             }
         }
 
+        [Serializable]
+        public struct TerrainLayer
+        {
+            public string Name;
+            public float Height;
+            public Color Color;
+        }
     }
 
 }
