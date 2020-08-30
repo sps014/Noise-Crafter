@@ -14,6 +14,8 @@ namespace WorldCrafter.EditorUtility
             int width = map.GetLength(0);
             int height = map.GetLength(1);
             var texture = new Texture2D(width, height);
+            texture.filterMode = FilterMode.Point;
+            texture.wrapMode = TextureWrapMode.Clamp;
             var colorMap = new Color[width * height];
             for (int x = 0; x < width; x++)
             {
@@ -30,7 +32,8 @@ namespace WorldCrafter.EditorUtility
         public void DrawColorMap(Color[] colorMap,int width,int height)
         {
             var texture = new Texture2D(width, height);
-            
+            texture.filterMode = FilterMode.Point;
+            texture.wrapMode = TextureWrapMode.Clamp;
             texture.SetPixels(colorMap);
             texture.Apply();
             TextureRenderer.sharedMaterial.mainTexture = texture;
