@@ -21,7 +21,7 @@ namespace WorldCrafter.EditorUtility
             {
                 for (int y = 0; y < height; y++)
                 {
-                    colorMap[x*width + y] = Color.Lerp(Color.black, Color.white, map[x, y]);
+                    colorMap[x*height + y] = Color.Lerp(Color.black, Color.white, map[x, y]);
                 }
             }
             texture.SetPixels(colorMap);

@@ -48,7 +48,7 @@ namespace WorldCrafter.EditorUtility
                     {
                         if(current<=Layers[k].Height)
                         {
-                            colorMap[i * Width + j] = Layers[k].Color;
+                            colorMap[i * Height + j] = Layers[k].Color;
 ;                            break;
                         }
                     }
