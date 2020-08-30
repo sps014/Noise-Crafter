@@ -17,7 +17,6 @@ namespace WorldCrafter.EditorUtility
         public int Height = 256;
         public float Scale = 27.0f;
         public bool AutoGenerate = false;
-        public int NoOfLayers=7;
         [Range(0,1)]
         public float Persistane = 0.5f;
         public float Lacunarity = 1.87f;
@@ -26,7 +25,7 @@ namespace WorldCrafter.EditorUtility
         public TerrainLayer[] Layers;
         public void GenerateMap()
         {
-            var map = NoiseGenerator.GeneratePerlinNoise(Width, Height, Scale,Seed,new NoiseConfig(NoOfLayers,Persistane,Lacunarity),Offset);
+            var map = NoiseGenerator.GeneratePerlinNoise(Width, Height, Scale,Seed,new NoiseConfig(Layers.Length,Persistane,Lacunarity),Offset);
             
             var display = FindObjectOfType<MapTextureRenderer>();
             if (Mode == DrawMode.ColorMap)
