@@ -19,9 +19,18 @@ namespace WorldCrafter.EditorUtility
             {
                 for (int y = 0; y < height; y++)
                 {
-                    colorMap[x + y * width] = Color.Lerp(Color.black, Color.white, map[x, y]);
+                    colorMap[x*width + y] = Color.Lerp(Color.black, Color.white, map[x, y]);
                 }
             }
+            texture.SetPixels(colorMap);
+            texture.Apply();
+            TextureRenderer.sharedMaterial.mainTexture = texture;
+            TextureRenderer.transform.localScale = new Vector3(width, 1, height);
+        }
+        public void DrawColorMap(Color[] colorMap,int width,int height)
+        {
+            var texture = new Texture2D(width, height);
+            
             texture.SetPixels(colorMap);
             texture.Apply();
             TextureRenderer.sharedMaterial.mainTexture = texture;

@@ -7,6 +7,12 @@ namespace WorldCrafter.EditorUtility
 {
     public class MapGenerator : MonoBehaviour
     {
+        public enum DrawMode
+        {
+            NoiseMap,
+            ColorMap
+        }
+        public DrawMode Mode = DrawMode.NoiseMap;
         public int Width = 256;
         public int Height = 256;
         public float Scale = 27.0f;
@@ -21,20 +27,35 @@ namespace WorldCrafter.EditorUtility
         public void GenerateMap()
         {
             var map = NoiseGenerator.GeneratePerlinNoise(Width, Height, Scale,Seed,new NoiseConfig(NoOfLayers,Persistane,Lacunarity),Offset);
-            GenerateColors();
+            
             var display = FindObjectOfType<MapTextureRenderer>();
-            display.DrawNoiseMap(map);
+            if (Mode == DrawMode.ColorMap)
+            {
+                var colors=GenerateColors(map);
+                display.DrawColorMap(colors, Width, Height);
+            }
+            else
+                display.DrawNoiseMap(map);
         }
-        void GenerateColors(float[,] map)
+        Color[] GenerateColors(float[,] map)
         {
+            var colorMap = new Color[Width * Height];
             for (int i = 0; i < Width; i++)
             {
                 for (int j = 0; j < Height; j++)
                 {
                     var current = map[i, j];
-                    
+                    for (int k = 0; k < Layers.Length; k++)
+                    {
+                        if(current<=Layers[k].Height)
+                        {
+                            colorMap[i * Width + j] = Layers[k].Color;
+;                            break;
+                        }
+                    }
                 }
             }
+            return colorMap;
         }
         void OnValidate()
         {
